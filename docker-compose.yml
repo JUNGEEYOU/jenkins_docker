@@ -2,7 +2,9 @@ version: '3'
 services:
   app:
     build: .
-    image: ${DOCKER_USER_ID}/django
+    image: ${DOCKER_USER_ID}/django      
+  production:
+    image: ${DOCKER_USER_ID}/django:${BUILD_NUMBER}
     command: python manage.py runserver 0.0.0.0:80
     volumes:
       - .:/code
